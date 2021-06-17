@@ -1,0 +1,55 @@
+﻿@model OTM.Models.Student
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Student</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.rollno)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.rollno)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Sname)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Sname)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Mno)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Mno)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt class="col-sm-2">
+            Department
+        </dt>
+        <dd class="col-sm-10">
+            @ViewBag.DeptSname
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.semester)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.semester.Id)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Index" role="button" class="btn btn-primary">Home</a> 
+    @*<a asp-action="Index">Back to List</a>*@
+</div>

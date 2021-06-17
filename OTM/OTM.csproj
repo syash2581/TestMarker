@@ -1,0 +1,65 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20201014103049_init2.cs" />
+    <Compile Remove="Migrations\20201014103049_init2.Designer.cs" />
+    <Compile Remove="Migrations\20201014103251_init2.cs" />
+    <Compile Remove="Migrations\20201014103251_init2.Designer.cs" />
+    <Compile Remove="Migrations\20201014103446_init2.cs" />
+    <Compile Remove="Migrations\20201014103446_init2.Designer.cs" />
+    <Compile Remove="Migrations\20201014103721_init2.cs" />
+    <Compile Remove="Migrations\20201014103721_init2.Designer.cs" />
+    <Compile Remove="Migrations\20201014104437_init2.cs" />
+    <Compile Remove="Migrations\20201014104437_init2.Designer.cs" />
+    <Compile Remove="Migrations\20201014105049_init2.cs" />
+    <Compile Remove="Migrations\20201014105049_init2.Designer.cs" />
+    <Compile Remove="Migrations\20201014105327_init2.cs" />
+    <Compile Remove="Migrations\20201014105327_init2.Designer.cs" />
+    <Compile Remove="Migrations\20201014105457_init2.cs" />
+    <Compile Remove="Migrations\20201014105457_init2.Designer.cs" />
+    <Compile Remove="Migrations\20201014105744_init2.cs" />
+    <Compile Remove="Migrations\20201014105744_init2.Designer.cs" />
+    <Compile Remove="Migrations\20201014110156_init3.cs" />
+    <Compile Remove="Migrations\20201014110156_init3.Designer.cs" />
+    <Compile Remove="Migrations\20201014110621_init3.cs" />
+    <Compile Remove="Migrations\20201014110621_init3.Designer.cs" />
+    <Compile Remove="Migrations\20201014110952_init3.cs" />
+    <Compile Remove="Migrations\20201014110952_init3.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.9" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.9" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.9">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.9" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
+    <PackageReference Include="Rotativa.AspNetCore" Version="1.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Models\SqlRepository\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Views\Shared\_LoginPartial.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Tests\_Layout.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,109 @@
+﻿@model IEnumerable<OTM.Models.Question>
+
+@{
+    ViewData["Title"] = "Tests";
+    <button class="btn btn-primary mt-3 float-right" id="s1" form="form1">Submit</button>
+    int i = 1;
+}
+
+<h1><font color="blue">@ViewBag.TestDetails</font></h1>
+<br />
+<h5 style="display:inline;background-color:#FFFF66">
+    <font color="blue">
+        Remaining Time :-
+    </font><font color="red">
+        <span id="hh">@ViewBag.hh</span>:
+        <span id="mm">@ViewBag.mm</span>:
+        <span id="ss">@ViewBag.ss</span>
+    </font>
+</h5>
+<br />
+<small class="text-muted">
+    <b>(HH:MM:SS)</b>
+</small>
+<form asp-action="FinalSubmit" asp-controller="Students" id="form1" name="form1">
+    <div>
+        @foreach (var item in Model)
+        {
+
+
+
+            <div class="card card-header-pills mt-lg-2">
+                <div class="card-header">
+                    <b>Q @i.  @item.question</b>
+                    <p class="float-right"><b>Marks:@item.Marks</b></p>
+                    <br />
+                    <small>@item.QuestionBrief</small>
+                </div>
+                <div class="card-body">
+                    @foreach (var options in item.Options)
+                    {
+                        <input type="radio" name="@item.Id" value="@options.Option" class="mt-2" /> @options.Option<br />
+                    }
+                </div>
+                <div class="card-footer">
+
+                </div>
+            </div>
+            i = i + 1;
+        }
+        <button class="btn btn-primary mt-3" id="s1" form="form1">Submit</button>
+    </div>
+</form>
+<script>
+    var hh;
+    var mm;
+    var ss;
+
+    //hhvalue;mmvalue,ssvalue
+    var hhv;
+    var mmv;
+    var ssv;
+
+
+    var mytimer = setInterval(dec, 1000);
+
+    function dec() {
+        hh = document.getElementById("hh");
+        mm = document.getElementById("mm");
+        ss = document.getElementById("ss");
+
+        hhv = Number(hh.innerText);
+        mmv = Number(mm.innerText);
+        ssv = Number(ss.innerText);
+
+        if (ssv == 0) {
+            ssv = 59;
+            if (mmv == 0) {
+                mmv = 59;
+                if (hhv == 0) {
+
+                    hh.style.display = "none";
+                    mm.style.display = "none";
+                    ss.style.display = "none";
+                        document.getElementById("form1").submit();
+
+                    
+                }
+                else {
+                    hhv = hhv - 1;
+                }
+            }
+            else {
+                mmv = mmv - 1;
+            }
+        }
+        else {
+            ssv = ssv - 1;
+        }
+
+        hh.innerText = hhv.toString();
+        mm.innerText = mmv.toString();
+        ss.innerText = ssv.toString();
+
+    }
+
+
+
+</script>
+

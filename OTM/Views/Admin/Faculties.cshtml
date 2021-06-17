@@ -1,0 +1,76 @@
+﻿@model IEnumerable<OTM.Models.Faculty>
+
+@{
+    ViewData["Title"] = "TestMarker";
+}
+
+<h1>Welcome to @ViewData["Title"]</h1>
+<partial name="_indexpartial" />
+@*
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>*@
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.rollno)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.email)
+            </th>
+           @* <th>
+                @Html.DisplayNameFor(model => model.semester)
+            </th>*@
+            <th>
+                Registered or not?
+            </th>
+            <th>
+
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.rollno)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.email)
+                </td>
+                @*<td>
+                    @Html.DisplayFor(modelItem => item.semester.Id)
+                </td>*@
+                <td>
+                    @if (item.regornot == 1)
+                    {
+                        <span>Approved</span>
+                    }
+                    else
+                    {
+                        <span>Not Approved</span>
+                    }
+                </td>
+                <td>
+                    @if (item.regornot == 0)
+                    {
+                        <a asp-action="Approve" asp-controller="Admin" asp-route-rollno="@item.rollno" class="btn btn-danger" role="button">Approve</a>
+                    }
+                    else
+                    {
+                        <a asp-action="Approve" asp-controller="Admin" class="btn btn-secondary disabled" role="button">Approved</a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

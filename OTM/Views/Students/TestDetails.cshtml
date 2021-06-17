@@ -1,0 +1,75 @@
+﻿@model OTM.Models.Test
+
+@{
+    ViewData["Title"] = "TestDetails";
+}
+
+<h1>TestDetails</h1>
+<p>
+    <a class="btn btn-danger" asp-controller="Students" asp-action="Tests">Back To Tests</a>
+</p>
+<div>
+    <h4>Test</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TotalQuestions)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TotalQuestions)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Totalmarks)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Totalmarks)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Testdate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Testdate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Testduration)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Testduration)
+        </dd>
+        @*<dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TestEndtime)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TestEndtime)
+        </dd>*@
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Faculty)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Faculty.Id)
+            @ViewBag.Faculty
+        </dd>
+        @*<dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.semester)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.semester.Id)
+        </dd>*@
+    </dl>
+</div>
+<div>
+    
+    <a class="btn btn-danger" asp-controller="Students" asp-action="Tests">Back To Tests</a>
+</div>

@@ -1,0 +1,81 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<CustomIdentity> SignInManager
+@inject UserManager<CustomIdentity> UserManager
+
+
+@{
+    ViewData["Title"] = "TestMarker";
+}
+
+<div style="padding-right:100px;padding-top:100px;margin-left:-0px;height:500px;float:left">
+    <img src="~/favicon.png" alt="TestMarker" height="430" widht="500" />
+</div>
+<div style="padding-left: 100px; padding-top: 100px">
+    <h1 class="mb-5">@ViewBag.welcome</h1>
+    <partial name="_indexpartial" />
+</div>
+@*
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>*@
+@*<table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.rollno)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Sname)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Mno)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Password)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.department)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.semester)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+    @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.rollno)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mno)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Password)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.department.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.semester.Id)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+    }
+        </tbody>
+    </table>*@
+

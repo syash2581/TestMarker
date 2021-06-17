@@ -1,0 +1,94 @@
+﻿
+@model OTM.Models.CustomIdentity
+@{
+    ViewData["Title"] = "Register";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" asp-action="Register" asp-controller="Account">
+            <h4>Create a new account.</h4>
+            <hr />
+            <p>@ViewBag.Errors</p>
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label>Register As</label><br />
+                <select class="form-control" id="type" asp-for="type">
+                    <option value="Student" selected="selected">Student</option>
+                    <option value="Faculty">Faculty</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="rollno"></label>
+                <input asp-for="rollno" class="form-control" />
+                <span asp-validation-for="rollno" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="name"></label>
+                <input asp-for="name" class="form-control" />
+                <span asp-validation-for="name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <p><font color="red">+91 or 0 is not Don't require.</font></p>
+                <label asp-for="mno"></label>
+                <input asp-for="mno" class="form-control" />
+                <span asp-validation-for="mno" class="text-danger"></span>
+            </div>
+            <div id="Dept" class="form-group">
+                <label asp-for="DeptSname"></label>
+                <select asp-for="DeptSname" class="form-control" asp-items="ViewBag.Dept"></select>
+                <span asp-validation-for="DeptSname" class="text-danger"></span>
+            </div>
+            <div id="sem" class="form-group">
+                <label asp-for="SemesterId"></label>
+                <select asp-for="SemesterId" class="form-control" asp-items="ViewBag.Sem"></select>
+                <span asp-validation-for="SemesterId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ConfirmPassword"></label>
+                <input asp-for="ConfirmPassword" class="form-control" />
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Register</button>
+        </form>
+    </div>
+    <div class="col-md-6 col-md-offset-2">
+        <section>
+            
+        </section>
+    </div>
+</div>
+<script>
+    var usrType = document.getElementById("type");
+    var sem = document.getElementById("sem");
+
+    usrType.addEventListener("change", function (e) {
+        var usrValue = usrType.options[usrType.selectedIndex].text;
+        if (usrValue == "Faculty") {
+            sem.style.display = "none";
+            sem.required = false;
+        }
+        else if (usrValue == "Student") {
+            sem.style.display = "block";
+            sem.required = true;
+        }
+
+    });
+</script>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+

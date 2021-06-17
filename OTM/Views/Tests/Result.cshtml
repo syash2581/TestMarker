@@ -1,0 +1,73 @@
+﻿@model IEnumerable<OTM.Models.TestResults>
+
+@{
+    ViewData["Title"] = "Result";
+}
+
+<h1>Result</h1>
+<table class="table table-responsive">
+    <tbody>
+        <tr>
+            <td>
+                Test Name : <b>@ViewBag.TestName</b>
+            </td>
+            <td>
+                Test Description : <b>@ViewBag.TestDescription</b>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Test Date : <b>@ViewBag.TestDate</b>
+            </td>
+            <td>
+                Test End Date : <b>@ViewBag.TestEndDate</b>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Faculty : <b>@ViewBag.Fname</b>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Total Question : <b>@ViewBag.totQues</b>
+            </td>
+            <td>
+                Total Marks : <b>@ViewBag.OutFrom</b>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.rollno)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.marks) <p class="d-inline"><font color="red">[Out From : @ViewBag.OutFrom]</font></p>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.rollno)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.sname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.marks)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

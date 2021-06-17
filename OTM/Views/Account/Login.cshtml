@@ -1,0 +1,53 @@
+﻿@model OTM.Models.LoginModel
+
+@{
+    ViewData["Title"] = "Login";
+}
+<h1>@ViewData["Title"]</h1>
+<div class="row">
+    <div class="col-md-4">
+        <section>
+            <form id="account" method="post">
+                <h4>Use a local account to log in.</h4>
+                <hr />
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="usertype"></label><br />
+                    <select class="form-control" id="type" asp-for="usertype">
+                        <option value="Student" selected="selected">Student</option>
+                        <option value="Faculty">Faculty</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="rollno"></label>
+                    <input asp-for="rollno" class="form-control" />
+                    <span asp-validation-for="rollno" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Password2"></label>
+                    <input asp-for="Password2" class="form-control" />
+                    <span asp-validation-for="Password2" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Log in</button>
+                </div>
+                @*<div class="form-group">
+            <p>
+                <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
+            </p>
+            <p>
+                <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
+            </p>
+        </div>*@
+            </form>
+        </section>
+    </div>
+    <div class="col-md-6 col-md-offset-2">
+
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+

@@ -1,0 +1,50 @@
+﻿@model IEnumerable<OTM.Models.Question>
+
+@{
+    ViewData["Title"] = "Tests";
+    <a asp-action="Tests" asp-controller="Students" class="btn btn-primary mt-3 float-right" id="s1" form="form1">Home</a>
+    int i = 1;
+}
+
+<h1><font color="blue">@ViewBag.TestDetails</font></h1>
+    <div class="card">
+        <div class="card-header">
+            @ViewBag.TestDetails
+        </div>
+        <div class="card-body">
+            <h3>Total Marks : <b>@ViewBag.totalmarks / @ViewBag.testtotalmarks</b></h3>
+        </div>
+        <div class="card-footer">
+
+        </div>
+    </div>
+    <div>
+        @foreach (var item in Model)
+        {
+            <div class="card card-header-pills mt-lg-2">
+                <div class="card-header">
+                    <b>Q @i.  @item.question</b>
+                    <p class="float-right"><b>Marks:@item.Marks</b></p>
+                    <br />
+                    <small>@item.QuestionBrief</small>
+                </div>
+                <div class="card-body">
+                    @foreach (var options in item.Options)
+                    {
+                        if (options.Correct == true)
+                        {
+                            <p>Correct Answer : <font color="red">@options.Option</font></p>
+                            <p><font color="red">@options.Description</font></p>
+                        }
+
+                    }
+                </div>
+                <div class="card-footer">
+
+                </div>
+            </div>
+            i = i + 1;
+        }
+        <a asp-action="Tests" asp-controller="Students" class="btn btn-primary mt-3" id="s1" form="form1">Home</a>
+    </div>
+
